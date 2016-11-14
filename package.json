@@ -9,9 +9,9 @@
   "author": "Daniel Mies",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/dmies/codecentric-reveal-template/issues"
+    "url": "https://github.com/codecentric/codecentric-reveal-template/issues"
   },
-  "homepage": "https://github.com/dmies/codecentric-reveal-template#readme",
+  "homepage": "https://github.com/codecentric/codecentric-reveal-template#readme",
   "dependencies": {
     "reveal.js": "^3.3.0"
   }
