@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!-- saved from url=(0025)http://127.0.0.1:8080/#/3 -->
+<html lang="en" class=" js no-mobile desktop no-ie chrome chrome55 root-section w-1651 gt-240 gt-320 gt-480 gt-640 gt-768 gt-800 gt-1024 gt-1280 gt-1440 lt-1680 lt-1920 no-portrait landscape gradient rgba opacity textshadow multiplebgs boxshadow borderimage borderradius cssreflections csstransforms csstransitions no-touch retina fontface domloaded" id="index-page"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+
+    <title>The Title of the Talk</title>
+
+    <meta name="description" content="Title - Sub Title">
+    <meta name="author" content="Your Name">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="./The Title of the Talk_files/reveal.css">
+    <link rel="stylesheet" href="./The Title of the Talk_files/black.css" id="theme">
+    <link rel="stylesheet" href="./The Title of the Talk_files/deck.css">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="./The Title of the Talk_files/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'node_modules/reveal.js/css/print/pdf.css' : 'node_modules/reveal.js/css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script><link rel="stylesheet" type="text/css" href="./The Title of the Talk_files/paper.css">
+
+    <!--[if lt IE 9]>
+    <script src="node_modules/reveal.js/lib/js/html5shiv.js"></script>
+    <![endif]--><script type="text/javascript" src="./The Title of the Talk_files/marked.js"></script><script type="text/javascript" src="./The Title of the Talk_files/markdown.js"></script><script type="text/javascript" src="./The Title of the Talk_files/highlight.js"></script><script type="text/javascript" src="./The Title of the Talk_files/zoom.js"></script><script type="text/javascript" src="./The Title of the Talk_files/notes.js"></script>
+</head>
+
+<body style="transition: -webkit-transform 0.8s ease;">
+
+<div class="reveal slide center ready" role="application" data-transition-speed="default" data-background-transition="fade">
+
+    <div class="footer">
+        <!--currently unused-->
+    </div>
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides" style="width: 960px; height: 700px; zoom: 1.25623;">
+
+        <section class="whiteText past" data-markdown="" data-background="img/background-title-16x9.png" data-markdown-parsed="true" style="top: 350px; display: none;" data-background-image="img/background-title-16x9.png" hidden="" aria-hidden="true"><h1 id="nomad-consul">Nomad/Consul</h1>
+<h2 id="microservice-deployment">Microservice deployment</h2>
+<p>Tomislav Lozancic, codecentric AG</p>
+</section>
+
+        <!-- You can use inline markdown -->
+
+        <section data-markdown="" data-background="img/background-green-16x9.png" data-markdown-parsed="true" style="top: 98px; display: block;" data-background-image="img/background-green-16x9.png" hidden="" aria-hidden="true" class="past"><h3 id="overview">Overview</h3>
+<ul>
+<li>Part 1: Intro<ul>
+<li>What is Nomad/Consul?</li>
+</ul>
+</li>
+<li>Part 2: Architecture<ul>
+<li>Steps</li>
+<li>Results</li>
+</ul>
+</li>
+<li>Part 3: Showcase<ul>
+<li>Summary</li>
+</ul>
+</li>
+</ul>
+</section>
+
+        <!-- Or external markdown -->
+        <section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack past">
+            <section data-markdown="" data-markdown-parsed="true" data-background="img/background-orange-orig.jpg" data-background-image="img/background-orange-orig.jpg" style="top: 233px; display: block;"><h3 id="intro">Intro</h3>
+<!-- -->
+<ol>
+<li><em>What is the problem?</em></li>
+<li>What other solutions are there?</li>
+</ol>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 179px; display: block;"><h3 id="what-is-the-problem-">What is the problem?</h3>
+<ul>
+<li>Bullet point 1</li>
+<li>Bullet point 2<ol>
+<li>Ordered 1</li>
+<li>Ordered 2</li>
+</ol>
+</li>
+</ul>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h3 id="a-table">A table</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Amount</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Computer</td>
+            <td>3</td>
+            <td>100 €</td>
+        </tr>
+        <tr>
+            <td>Book</td>
+            <td>&gt;20</td>
+            <td>4.31 €</td>
+        </tr>
+    </tbody>
+</table>
+
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h3 id="source-code">Source code</h3>
+<pre><code class="hljs applescript"> <span class="hljs-built_in">class</span> LengthComparator implements Comparator&lt;String&gt; {
+   public int compare(String <span class="hljs-keyword">first</span>, String <span class="hljs-keyword">second</span>) {
+<span class="hljs-built_in">     return</span> Integer.compare(<span class="hljs-keyword">first</span>.<span class="hljs-built_in">length</span>(), <span class="hljs-keyword">second</span>.<span class="hljs-built_in">length</span>());
+   }
+ }
+</code></pre></section><section data-markdown="" data-markdown-parsed="true" data-background="img/background-orange-orig.jpg" class="future" aria-hidden="true" data-background-image="img/background-orange-orig.jpg" style="top: 350px; display: none;"><h3 id="intro">Intro</h3>
+<!-- -->
+<ol>
+<li>What is the problem?</li>
+<li><em>What other solutions are there?</em></li>
+</ol>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h3 id="another-slide">Another slide</h3>
+<p>Lorem ipsum</p>
+</section>
+        </section>
+
+        <!-- Or HTML -->
+        <section style="top: 0px; display: block;" class="stack present">
+            <section data-background="img/background-orange-orig.jpg" data-background-image="img/background-orange-orig.jpg" class="present" style="top: 0px; display: block;">
+                <h3>Architecture</h3>
+                <p><img class="simpleImage" src="./The Title of the Talk_files/consul-nomad-setup.png" alt="alt text" title="Consul Nomad Architecture" width="85%"></p>
+            </section>
+            <section class="future" aria-hidden="true" hidden="" style="top: 250.5px; display: block;">
+                <h3>Details</h3>
+                <p>are only visible after you signed the NDA</p>
+            </section>
+        </section>
+
+        <section style="top: 0px; display: block;" hidden="" aria-hidden="true" class="stack future">
+            <section data-markdown="" data-markdown-parsed="true" data-background="img/background-orange-orig.jpg" data-background-image="img/background-orange-orig.jpg" style="top: 287.5px; display: block;"><h3 id="wrapping-up">Wrapping Up</h3>
+<!-- -->
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 287.5px; display: block;"><h3 id="feedback">Feedback</h3>
+</section><section data-markdown="" data-markdown-parsed="true" class="future" aria-hidden="true" style="top: 350px; display: none;"><h3 id="the-end">The End</h3>
+<p>&nbsp;</p>
+<p>Copyright 2016</p>
+<p></p>
+<p><img class="simpleImage" src="./The Title of the Talk_files/logo-and-name-white.png" alt="alt text" title="codecentric Logo" width="30%"></p>
+</section>
+        </section>
+
+    </div>
+
+<div class="backgrounds"><div class="slide-background whiteText past" data-background-hash="img/background-title-16x9.pngnullnullnullnullnullnullnullnull" style="display: none;"></div><div class="slide-background past" data-background-hash="img/background-green-16x9.pngnullnullnullnullnullnullnullnull" data-loaded="true" style="display: block; background-image: url(&quot;img/background-green-16x9.png&quot;);"></div><div class="slide-background stack past" data-loaded="true" style="display: block;"><div class="slide-background present" data-background-hash="img/background-orange-orig.jpgnullnullnullnullnullnullnullnull" data-loaded="true" style="display: block; background-image: url(&quot;img/background-orange-orig.jpg&quot;);"></div><div class="slide-background future" data-loaded="true" style="display: block;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" style="display: none;"></div><div class="slide-background future" data-background-hash="img/background-orange-orig.jpgnullnullnullnullnullnullnullnull" style="display: none;"></div><div class="slide-background future" style="display: none;"></div></div><div class="slide-background stack present" data-loaded="true" style="display: block;"><div class="slide-background present" data-background-hash="img/background-orange-orig.jpgnullnullnullnullnullnullnullnull" data-loaded="true" style="display: block; background-image: url(&quot;img/background-orange-orig.jpg&quot;);"></div><div class="slide-background future" data-loaded="true" style="display: block;"></div></div><div class="slide-background stack future" data-loaded="true" style="display: block;"><div class="slide-background present" data-background-hash="img/background-orange-orig.jpgnullnullnullnullnullnullnullnull" data-loaded="true" style="display: block; background-image: url(&quot;img/background-orange-orig.jpg&quot;);"></div><div class="slide-background future" data-loaded="true" style="display: block;"></div><div class="slide-background future" style="display: none;"></div></div></div><div class="progress" style="display: block;"><span style="width: 1100.67px;"></span></div><aside class="controls" style="display: block;"><button class="navigate-left enabled" aria-label="previous slide"></button><button class="navigate-right enabled" aria-label="next slide"></button><button class="navigate-up" aria-label="above slide" disabled="disabled"></button><button class="navigate-down enabled" aria-label="below slide"></button></aside><div class="slide-number" style="display: block;"><span class="slide-number-a">9</span><span class="slide-number-delimiter">/</span><span class="slide-number-b">13</span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"></div><div id="aria-status-div" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px 1px 1px 1px);">
+                Architecture
+                
+            </div></div>
+
+<script src="./The Title of the Talk_files/head.min.js"></script>
+<script src="./The Title of the Talk_files/reveal.js"></script>
+
+<script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        slideNumber: 'c/t',
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+            {
+                src: 'node_modules/reveal.js/lib/js/classList.js', condition: function () {
+                return !document.body.classList;
+            }
+            },
+            {
+                src: 'node_modules/reveal.js/plugin/markdown/marked.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'node_modules/reveal.js/plugin/markdown/markdown.js', condition: function () {
+                return !!document.querySelector('[data-markdown]');
+            }
+            },
+            {
+                src: 'node_modules/reveal.js/plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            },
+            {src: 'node_modules/reveal.js/plugin/zoom-js/zoom.js', async: true},
+            {src: 'node_modules/reveal.js/plugin/notes/notes.js', async: true}
+        ]
+    });
+
+</script>
+
+
+
+</body></html>

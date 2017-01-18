@@ -4,17 +4,21 @@
 <!-- .slide: data-background="img/background-orange-orig.jpg" -->
 
 1. *What is the problem?*
-1. What other solutions are there?
+2. What solutions are there?
 
 ---
 
 ### What is the problem?
 
-- Bullet point 1
-- Bullet point 2
- 1. Ordered 1
- 1. Ordered 2
+- Single source of truth
+- Resource utilization
+- Load Balancer management
 
+---
+
+### What solutions are there?
+
+<img src="img/features-complexity.png" width="85%">
 ---
 
 ### A table
@@ -52,16 +56,6 @@
    }
  }
 ```
-
----
-
-### Intro
-
-<!-- .slide: data-background="img/background-orange-orig.jpg" -->
-
-1. What is the problem?
-1. *What other solutions are there?*
-
 
 ---
 
